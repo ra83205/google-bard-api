@@ -23,7 +23,6 @@ cd google-bard-api
 1. Create a virtual environment and install the required packages:
 
 ```
-bash
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
@@ -68,7 +67,7 @@ docker run -p 4000:80 your-image-name
 The application should now be running at `http://localhost:4000`.
 
 ## Contributing
-
+  pp21§1
 If you would like to contribute to this project, please feel free to submit a pull request or open an issue.
 
 ## License
