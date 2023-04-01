@@ -4,4 +4,4 @@
 read -p "Введите имя образа: " image_name
 
 # Выполнить команду docker run
-docker run -p 4000:80 "$image_name"
+docker run -d -p 80:80 --name=my_app_container --restart=unless-stopped "$image_name"
