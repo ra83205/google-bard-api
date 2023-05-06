@@ -16,7 +16,7 @@ These instructions will help you set up and run the project on your local machin
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/google-bard-api.git
+git clone https://github.com/ra83205/google-bard-api.git
 cd google-bard-api
 ```
 
