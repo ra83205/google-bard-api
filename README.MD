@@ -38,7 +38,7 @@ The application should now be running at `http://localhost:8000`.
 
 ### Usage
 
-You can send POST requests to the `/ask` endpoint with a JSON payload containing a `session_id` (your `__Secure-1PSID` cookie) and a `message`.
+Please obtain the cookies mentioned here from an authorized session on bard.google.com. The cookies can be used to send POST requests to the /ask endpoint along with a message in a JSON payload. It is important that the session_id, which is your __Secure-1PSID cookie, is included in the request.
 
 Example request using cURL:
 
