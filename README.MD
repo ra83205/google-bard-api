@@ -20,7 +20,7 @@ git clone https://github.com/ra83205/google-bard-api.git
 cd google-bard-api
 ```
 
-1. Create a virtual environment and install the required packages:
+2. Create a virtual environment and install the required packages:
 
 ```
 python3 -m venv venv
@@ -28,7 +28,7 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-1. Run the application using Uvicorn:
+3. Run the application using Uvicorn:
 
 ```bash
 uvicorn main:app --reload
@@ -58,7 +58,7 @@ To deploy this application using Docker, follow these steps:
 docker build -t your-image-name .
 ```
 
-1. Run the Docker container:
+2. Run the Docker container:
 
 ```bash
 docker run -p 4000:80 your-image-name
