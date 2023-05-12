@@ -1,7 +1,7 @@
 #!/bin/sh
 
-# Запросить у пользователя имя образа
-read -p "Введите имя образа: " image_name
+# Ask the user for the image name
+read -p "Enter image name: " image_name
 
-# Выполнить команду docker build
+# Run the docker build command
 docker build -t "$image_name" .
