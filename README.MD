@@ -79,7 +79,7 @@ To deploy this application using Docker, follow these steps:
 docker build -t your-image-name .
 ```
 
-1. Run the Docker container:
+2. Run the Docker container:
 
 ```
 docker run -p 4000:80 your-image-name
