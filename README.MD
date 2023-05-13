@@ -31,10 +31,10 @@ pip install -r requirements.txt
 3. Run the application using Uvicorn:
 
 ```
-uvicorn main:app --reload
+uvicorn main:app --reload --port 8000
 ```
 
-The application should now be running at `http://localhost:80`.
+The application should now be running at `http://localhost:8000`.
 
 ### Usage
 
@@ -43,14 +43,14 @@ Please obtain the cookies mentioned here from an authorized session on bard.goog
 Example request using cURL:
 
 ```
-curl -X POST "http://localhost:80/ask" -H "accept: application/json" -H "Content-Type: application/json" -d '{"session_id":"your-session-id","message":"What is the meaning of life?"}'
+curl -X POST "http://localhost:8000/ask" -H "accept: application/json" -H "Content-Type: application/json" -d '{"session_id":"your-session-id","message":"What is the meaning of life?"}'
 ```
 
 Example request using Postman:
 
 1. Open Postman and select the "POST" method
 
-2. Enter the URL: `http://localhost:80/ask`
+2. Enter the URL: `http://localhost:8000/ask`
 
 3. Select the "Headers" tab and add a new key-value pair: `Content-Type: application/json`
 
@@ -82,10 +82,10 @@ docker build -t your-image-name .
 2. Run the Docker container:
 
 ```
-docker run -p 80:80 your-image-name
+docker run -p 8000:80 your-image-name
 ```
 
-The application should now be running at `http://localhost:80`.
+The application should now be running at `http://localhost:8000`.
 
 ## Collaboration
 
