@@ -91,10 +91,6 @@ The application should now be running at `http://localhost:8000`.
 
 I'm open to collaborating with other developers who want to help expand the functionality of this project. Feel free to fork the repository and submit a pull request with your proposed changes. I'd be happy to review them and merge them in if they're a good fit.
 
-## Contributing
-
-If you would like to contribute to this project, please feel free to submit a pull request or open an issue.
-
 ## License
 
 The code provided in this project is available for anyone to use for any purpose without any restrictions or warranties.
