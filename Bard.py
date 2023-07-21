@@ -142,13 +142,13 @@ class Chatbot:
         )
 
         print(resp)
-
+        
         chat_data = json.loads(resp.content.splitlines()[3])[0][2]
         if not chat_data:
             return {"content": f"Google Bard encountered an error: {resp.content}."}
         json_chat_data = json.loads(chat_data)
         results = {
-            "content": json_chat_data[0][0],
+            "content": json_chat_data[5][2],
             "conversation_id": json_chat_data[1][0],
             "response_id": json_chat_data[1][1],
             "factualityQueries": json_chat_data[3],

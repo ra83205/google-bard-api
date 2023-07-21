@@ -24,4 +24,5 @@ async def ask(request: Request, message: Message) -> dict:
     # Execute your code without authenticating the resource
     chatbot = Chatbot(message.session_id)
     response = chatbot.ask(message.message)
+    # print(response['choices'][0]['content'][0])
     return response
