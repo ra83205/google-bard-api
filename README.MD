@@ -16,8 +16,8 @@ These instructions will help you set up and run the project on your local machin
 1. Clone the repository:
 
 ```
-git clone https://github.com/ra83205/google-bard-api.git
-cd google-bard-api
+git clone https://github.com/Amm1rr/Google-Bard-API.git
+cd Google-Bard-API
 ```
 
 2. Create a virtual environment and install the required packages:
@@ -99,3 +99,5 @@ The code provided in this project is available for anyone to use for any purpose
 
 - Google for creating Google Bard
 - FastAPI for providing a simple and efficient web framework
+
+[![](https://visitcount.itsvg.in/api?id=amm1rr&label=V&color=0&icon=2&pretty=true)](https://github.com/Amm1rr/)
