@@ -162,6 +162,75 @@ class Chatbot:
         return results
 
 
+    def ask_bard(self, message: str) -> json:
+        """
+        Send a message to Google Bard and return the response.
+        :param message: The message to send to Google Bard.
+        :return: A dict containing the response from Google Bard.
+        """
+        # url params
+        params = {
+            "bl": "boq_assistant-bard-web-server_20230326.21_p0",
+            "_reqid": str(self._reqid),
+            "rt": "c",
+        }
+
+        # message arr -> data["f.req"]. Message is double json stringified
+        message_struct = [
+            [message],
+            None,
+            [self.conversation_id, self.response_id, self.choice_id],
+        ]
+
+        data = {
+            "f.req": json.dumps([None, json.dumps(message_struct)]),
+            "at": self.SNlM0e,
+        }
+
+        print(message)
+
+        # do the request!
+        resp = self.session.post(
+            "https://bard.google.com/_/BardChatUi/data/assistant.lamda.BardFrontendService/StreamGenerate",
+            params=params,
+            data=data,
+            timeout=120,
+        )
+
+        print(resp)
+        
+        chat_data = json.loads(resp.content.splitlines()[3])[0][2]
+        if not chat_data:
+            return {"content": f"Google Bard encountered an error: {resp.content}."}
+        json_chat_data = json.loads(chat_data)
+
+        results = {
+            "content": json_chat_data[5][2],
+            "conversation_id": json_chat_data[1][0],
+            "response_id": json_chat_data[1][1],
+            "factualityQueries": json_chat_data[3],
+            "textQuery": json_chat_data[2][0] if json_chat_data[2] is not None else "",
+            "choices": [{"id": i[0], "content": i[1]} for i in json_chat_data[4]],
+        }
+        self.conversation_id = results["conversation_id"]
+        self.response_id = results["response_id"]
+        self.choice_id = results["choices"][0]["id"]
+        self._reqid += 100000
+
+        json_data = {
+            "choices": [
+                {
+                    "message": {
+                        "content": results["choices"][0]["content"]
+                    }
+                }
+            ]
+        }
+
+        # return json.load(json_data)
+        return json_data
+
+
 if __name__ == "__main__":
     print(
         """
