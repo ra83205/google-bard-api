@@ -99,7 +99,7 @@ class Chatbot:
         self.SNlM0e = self.__get_snlm0e()
 
     def __get_snlm0e(self):
-        resp = self.session.get(url="https://bard.google.com/chat", timeout=10)
+        resp = self.session.get(url="https://bard.google.com/", timeout=10)
         # Find "SNlM0e":"<ID>"
         print(resp.status_code)
         if resp.status_code != 200:
