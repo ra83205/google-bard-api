@@ -99,8 +99,9 @@ class Chatbot:
         self.SNlM0e = self.__get_snlm0e()
 
     def __get_snlm0e(self):
-        resp = self.session.get(url="https://bard.google.com/", timeout=10)
+        resp = self.session.get(url="https://bard.google.com/chat", timeout=10)
         # Find "SNlM0e":"<ID>"
+        print(resp.status_code)
         if resp.status_code != 200:
             raise Exception("Could not get Google Bard")
         SNlM0e = re.search(r"SNlM0e\":\"(.*?)\"", resp.text).group(1)
@@ -147,8 +148,11 @@ class Chatbot:
         if not chat_data:
             return {"content": f"Google Bard encountered an error: {resp.content}."}
         json_chat_data = json.loads(chat_data)
+        
+        print(json_chat_data[4])
+
         results = {
-            "content": json_chat_data[0][0],
+            "content": json_chat_data[4][0][0],
             "conversation_id": json_chat_data[1][0],
             "response_id": json_chat_data[1][1],
             "factualityQueries": json_chat_data[3],
